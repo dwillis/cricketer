@@ -1,11 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'cricketer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Cricketer"
-  spec.version       = Cricketer::VERSION
+  spec.name          = "cricketer"
+  spec.version       = "0.0.1"
   spec.authors       = ["Derek Willis"]
   spec.email         = ["dwillis@gmail.com"]
   spec.summary       = %q{A Ruby library for parsing data from ESPN's Cricinfo site.}

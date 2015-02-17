@@ -1,5 +1,5 @@
-require "cricketer/version"
-require "cricketer/match"
+require "version"
+require "match"
 require 'open-uri'
 require 'ostruct'
 require 'json'
