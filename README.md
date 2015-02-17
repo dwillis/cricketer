@@ -26,7 +26,7 @@ To use Cricketer, you need to know the ID number of a match from espncricinfo.co
 
 ```ruby
 irb(main):001:0> require 'cricketer'
-irb(main):002:0> match = Cricketer::Match.new(656399)
+irb(main):002:0> match = Cricketer::Match.create(656399)
 irb(main):003:0> match.description
 => "ICC Cricket World Cup, 1st Match, Pool A: New Zealand v Sri Lanka at Christchurch, Feb 14, 2015"
 irb(main):004:0> match.current_status
