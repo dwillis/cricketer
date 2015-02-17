@@ -9,3 +9,4 @@ require 'team'
 
 module Cricketer
 end
+require 'api'
