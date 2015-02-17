@@ -1,8 +1,16 @@
 require 'vcr'
 
+# Ensure that the load path has the lib folder accessible
+# in the test environment
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+# Require the entry point for the gem
+require 'cricketer'
+
 VCR.configure do |config|
-    config.cassette_library_dir = 'cassettes'
-      config.hook_into :webmock # or :fakeweb
+  config.cassette_library_dir = 'spec/cassettes'
+  config.hook_into :webmock # or :fakeweb
 end
 
 RSpec.configure do |config|
