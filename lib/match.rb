@@ -2,8 +2,8 @@ module Cricketer
   class Match
 
     attr_reader :match_id, :json_url, :match_data, :description, :summary, :innings, :officials, :team1, :team2,
-    :team1_players, :team2_players, :current_status, :innings, :team1_innings, :team2_innings, :ground,
-    :floodlit, :batted_first, :winning_team, :cancelled, :result
+      :team1_players, :team2_players, :current_status, :innings, :team1_innings, :team2_innings, :ground,
+      :floodlit, :batted_first, :winning_team, :cancelled, :result
 
     def initialize(match_id)
       @match_id = match_id
@@ -74,8 +74,6 @@ module Cricketer
     def team2_players
       @match_data['team'].detect{|t| t['team_name'] == @team2.name}['player'].map{|p| OpenStruct.new(p)}
     end
-
-
 
   end
 end
