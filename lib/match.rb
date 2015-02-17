@@ -2,7 +2,7 @@ module Cricketer
   class Match
     extend FastAttributes
 
-    attr_reader :match_id, :json_url, :match_data, :description, :summary, :innings, :officials, :team1, :team2,
+    attr_reader :match_id, :match_data, :description, :summary, :innings, :officials, :team1, :team2,
       :team1_players, :team2_players, :current_status, :innings, :team1_innings, :team2_innings, :ground,
       :floodlit, :batted_first, :winning_team, :cancelled, :result
     attr_accessor :teams_data

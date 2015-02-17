@@ -6,13 +6,8 @@ RSpec.describe Cricketer::Match do
 
   let(:match) do
     VCR.use_cassette("match_#{match_id}") do
-      subject.new match_id
+      subject.create match_id
     end
-  end
-
-  it 'requests a URL when new is called' do
-    url = match.instance_variable_get(:@json_url)
-    expect(url).to eq "http://www.espncricinfo.com/matches/engine/match/#{match_id}.json"
   end
 
   context 'produces valid data' do
