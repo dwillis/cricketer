@@ -17,6 +17,10 @@ module Cricketer
       @officials = @match_data['official'].map{|o| OpenStruct.new(o)}
     end
 
+    def to_s
+      @description
+    end
+
     def current_status
       @match_data['live']['status']
     end
