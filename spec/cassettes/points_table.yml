@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.espncricinfo.com/wc2007/engine/series/509587.json?view=pointstable
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.espncricinfo.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache
+      Cache-Control:
+      - public, max-age=60
+      Emea-Info:
+      - wci064 0.043
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Varnish:
+      - 1524686238 1524681695
+      - '1765889925'
+      X-Varnish-Cache:
+      - HIT
+      X-Varnish-Hits:
+      - '3'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Tue, 24 Feb 2015 18:41:49 GMT
+      Content-Length:
+      - '4094'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"graph":{"Pool A":{"1":{"points":[{"date":"2015-02-14","match_id":"53331","match_info":"Aus
+        2 - Eng 0","points":0},{"date":"2015-02-20","match_id":"53345","match_info":"NZ
+        2 - Eng 0","points":0},{"date":"2015-02-23","match_id":"53355","match_info":"Eng
+        2 - Scot 0","points":2}],"team_abbreviation":"Eng","team_id":"1","team_name":"England","team_short_name":"England"},"2":{"points":[{"date":"2015-02-14","match_id":"53331","match_info":"Aus
+        2 - Eng 0","points":2},{"date":"2015-02-21","match_id":"53349","match_info":"Aus
+        1 - Ban 1","points":3}],"team_abbreviation":"Aus","team_id":"2","team_name":"Australia","team_short_name":"Australia"},"25":{"points":[{"date":"2015-02-18","match_id":"53341","match_info":"Afg
+        0 - Ban 2","points":2},{"date":"2015-02-21","match_id":"53349","match_info":"Aus
+        1 - Ban 1","points":3}],"team_abbreviation":"Ban","team_id":"25","team_name":"Bangladesh","team_short_name":"Bangladesh"},"30":{"points":[{"date":"2015-02-17","match_id":"53339","match_info":"NZ
+        2 - Scot 0","points":0},{"date":"2015-02-23","match_id":"53355","match_info":"Eng
+        2 - Scot 0","points":0}],"team_abbreviation":"Scot","team_id":"30","team_name":"Scotland","team_short_name":"Scotland"},"40":{"points":[{"date":"2015-02-18","match_id":"53341","match_info":"Afg
+        0 - Ban 2","points":0},{"date":"2015-02-22","match_id":"53351","match_info":"Afg
+        0 - SL 2","points":0}],"team_abbreviation":"Afg","team_id":"40","team_name":"Afghanistan","team_short_name":"Afghanistan"},"5":{"points":[{"date":"2015-02-14","match_id":"53329","match_info":"NZ
+        2 - SL 0","points":2},{"date":"2015-02-17","match_id":"53339","match_info":"NZ
+        2 - Scot 0","points":4},{"date":"2015-02-20","match_id":"53345","match_info":"NZ
+        2 - Eng 0","points":6}],"team_abbreviation":"NZ","team_id":"5","team_name":"New
+        Zealand","team_short_name":"New Zealand"},"8":{"points":[{"date":"2015-02-14","match_id":"53329","match_info":"NZ
+        2 - SL 0","points":0},{"date":"2015-02-22","match_id":"53351","match_info":"Afg
+        0 - SL 2","points":2}],"team_abbreviation":"SL","team_id":"8","team_name":"Sri
+        Lanka","team_short_name":"Sri Lanka"}},"Pool B":{"27":{"points":[{"date":"2015-02-19","match_id":"53343","match_info":"UAE
+        0 - Zim 2","points":0}],"team_abbreviation":"UAE","team_id":"27","team_name":"United
+        Arab Emirates","team_short_name":"U.A.E."},"29":{"points":[{"date":"2015-02-16","match_id":"53337","match_info":"Ire
+        2 - WI 0","points":2}],"team_abbreviation":"Ire","team_id":"29","team_name":"Ireland","team_short_name":"Ireland"},"3":{"points":[{"date":"2015-02-15","match_id":"53333","match_info":"SA
+        2 - Zim 0","points":2},{"date":"2015-02-22","match_id":"53353","match_info":"India
+        2 - SA 0","points":2}],"team_abbreviation":"SA","team_id":"3","team_name":"South
+        Africa","team_short_name":"South Africa"},"4":{"points":[{"date":"2015-02-16","match_id":"53337","match_info":"Ire
+        2 - WI 0","points":0},{"date":"2015-02-21","match_id":"53347","match_info":"Pak
+        0 - WI 2","points":2},{"date":"2015-02-24","match_id":"53357","match_info":"WI
+        2 - Zim 0","points":4}],"team_abbreviation":"WI","team_id":"4","team_name":"West
+        Indies","team_short_name":"West Indies"},"6":{"points":[{"date":"2015-02-15","match_id":"53335","match_info":"India
+        2 - Pak 0","points":2},{"date":"2015-02-22","match_id":"53353","match_info":"India
+        2 - SA 0","points":4}],"team_abbreviation":"India","team_id":"6","team_name":"India","team_short_name":"India"},"7":{"points":[{"date":"2015-02-15","match_id":"53335","match_info":"India
+        2 - Pak 0","points":0},{"date":"2015-02-21","match_id":"53347","match_info":"Pak
+        0 - WI 2","points":0}],"team_abbreviation":"Pak","team_id":"7","team_name":"Pakistan","team_short_name":"Pakistan"},"9":{"points":[{"date":"2015-02-15","match_id":"53333","match_info":"SA
+        2 - Zim 0","points":0},{"date":"2015-02-19","match_id":"53343","match_info":"UAE
+        0 - Zim 2","points":2},{"date":"2015-02-24","match_id":"53357","match_info":"WI
+        2 - Zim 0","points":2}],"team_abbreviation":"Zim","team_id":"9","team_name":"Zimbabwe","team_short_name":"Zimbabwe"}},"end_date":"2015-03-15","minimum_points":12,"start_date":"2015-02-14"}}'
+    http_version: 
+  recorded_at: Tue, 24 Feb 2015 18:41:50 GMT
+recorded_with: VCR 2.9.3
