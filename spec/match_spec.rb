@@ -23,6 +23,6 @@ RSpec.describe Cricketer::Match do
     it 'returns team data' do
        expect(match.team1.name).to eq 'New Zealand'
     end
-
   end
+
 end

@@ -26,29 +26,7 @@ FastAttributes.set_type_casting(Cricketer::Officials, '%s.map { |s| Cricketer::O
 require 'version'
 require 'match'
 require 'api'
+require 'world_cup'
 
 module Cricketer
-
-  # check for live matches
-  def self.live_matches
-    results = []
-    url = 'http://static.cricinfo.com/rss/livescores.xml'
-    open(url) do |rss|
-      feed = RSS::Parser.parse(rss)
-      feed.items.each do |item|
-        match_id = item.guid.content.split('/').last.split('.').first.to_i
-        results << OpenStruct.new(match_id: match_id, description: item.description, url: item.link)
-      end
-    end
-    results
-  end
-
-  def self.worldcup_points
-    url = "http://www.espncricinfo.com/wc2007/engine/series/509587.json?view=pointstable"
-    points = JSON.parse(open(url).read)
-    pool_a = points['graph']["Pool A"].keys.map{|k| {id: k, name: points['graph']["Pool A"][k]['team_name'], matches: points['graph']["Pool A"][k]['points'].size, points: points['graph']["Pool A"][k]['points'].last['points']}}
-    pool_b = points['graph']["Pool B"].keys.map{|k| {id: k, name: points['graph']["Pool B"][k]['team_name'], matches: points['graph']["Pool B"][k]['points'].size, points: points['graph']["Pool B"][k]['points'].last['points']}}
-    [pool_a.sort_by!{|h| h[:points]}.reverse, pool_b.sort_by!{|h| h[:points]}.reverse]
-  end
-
 end

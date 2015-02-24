@@ -36,6 +36,20 @@ module Cricketer
                officials: official)
     end
 
+    # check for live matches
+    def self.live_matches
+      results = []
+      url = 'http://static.cricinfo.com/rss/livescores.xml'
+      open(url) do |rss|
+        feed = RSS::Parser.parse(rss)
+        feed.items.each do |item|
+          match_id = item.guid.content.split('/').last.split('.').first.to_i
+          results << OpenStruct.new(match_id: match_id, description: item.description, url: item.link)
+        end
+      end
+      results
+    end
+
     def teams_data
       @teams_data ||= extract_teams_data
     end
