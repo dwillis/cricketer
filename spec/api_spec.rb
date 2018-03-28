@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Cricketer::API do
   subject { Cricketer::API }
-  let(:match_id) { 656399 }
+  let(:match_id) { 656_399 }
 
   let(:api) do
     VCR.use_cassette("match_#{match_id}") do
@@ -11,9 +11,9 @@ RSpec.describe Cricketer::API do
   end
 
   context 'produces valid url' do
-
     it 'matches the url' do
-      expect(api.url).to eq "http://www.espncricinfo.com/matches/engine/match/#{match_id}.json"
+      url = "http://www.espncricinfo.com/matches/engine/match/#{match_id}.json"
+      expect(api.url).to eq url
     end
   end
 end
