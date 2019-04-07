@@ -14,7 +14,9 @@ module Cricketer
     end
 
     def content
-      @content ||= Nokogiri::HTML(open(url))
+      doc = Nokogiri::HTML(open(url))
+      doc.css('script, link').map(&:remove)
+      @content = doc.css('body').text.squeeze(" \n")
     end
   end
 end
