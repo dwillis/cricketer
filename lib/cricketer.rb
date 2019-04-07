@@ -3,6 +3,7 @@ require 'ostruct'
 require 'json'
 require 'fast_attributes'
 require 'rss'
+require 'nokogiri'
 
 # Require Cricketer::Team before type coercions due to load order limits
 require 'team'
@@ -27,6 +28,10 @@ require 'version'
 require 'match'
 require 'api'
 require 'world_cup'
+require_relative 'player_finder'
 
 module Cricketer
 end
+
+# p Cricketer::Match.create(656_399)
+p Cricketer::PlayerFinder.create('australia', 7898)

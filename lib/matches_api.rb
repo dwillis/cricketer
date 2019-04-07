@@ -1,5 +1,5 @@
 module Cricketer
-  class API
+  class MatchesAPI
     extend FastAttributes
 
     URL_BASE = 'http://www.espncricinfo.com/matches/engine/match'.freeze
