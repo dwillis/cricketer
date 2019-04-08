@@ -16,7 +16,7 @@ module Cricketer
     def content
       doc = Nokogiri::HTML(open(url))
       doc.css('script, link').map(&:remove)
-      @content = doc.css('body').text.squeeze(" \n")
+      @content = doc.css('.pnl490M').inner_text.gsub(/[[\r\n]*|[\r\n]+)[\t]*[\r\n]]/, '')
     end
   end
 end

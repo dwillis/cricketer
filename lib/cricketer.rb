@@ -6,7 +6,7 @@ require 'rss'
 require 'nokogiri'
 
 # Require Cricketer::Team before type coercions due to load order limits
-require 'team'
+require_relative 'team'
 
 # Create Models for Coercions
 Cricketer::Inning     = Class.new(OpenStruct)
@@ -24,11 +24,12 @@ FastAttributes.set_type_casting(Cricketer::Innings, '%s.map { |s| Cricketer::Inn
 FastAttributes.set_type_casting(Cricketer::Officials, '%s.map { |s| Cricketer::Official.new(s)}')
 
 # Must be required after type coercion definitions
-require 'version'
-require 'match'
-require 'api'
-require 'world_cup'
+require_relative 'version'
+require_relative 'match'
+require_relative 'matches_api'
+require_relative 'world_cup'
 require_relative 'player_finder'
+require_relative 'players_api'
 
 module Cricketer
 end

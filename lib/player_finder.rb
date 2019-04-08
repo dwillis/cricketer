@@ -1,5 +1,3 @@
-require_relative 'players_api'
-
 module Cricketer
   class PlayerFinder
     extend FastAttributes
