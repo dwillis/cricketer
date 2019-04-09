@@ -16,7 +16,9 @@ module Cricketer
     def content
       doc = Nokogiri::HTML(open(url))
       doc.css('script, link').map(&:remove)
-      @content = doc.css('.pnl490M').inner_text.gsub(/[[\r\n]*|[\r\n]+)[\t]*[\r\n]]/, '')
+      scrape_array = doc.css('.pnl490M').inner_text.gsub(/[[\r\n]*|[\r\n]+)[\t]*[\r\n]]/, ',').split(',')
+      scrape_array = scrape_array.map(&:strip)
+      @content = scrape_array.reject!{ |elem| elem.empty? || elem == ' ' || elem == ', ' }
     end
   end
 end
