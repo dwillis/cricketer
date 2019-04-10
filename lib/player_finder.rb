@@ -16,6 +16,49 @@ module Cricketer
     end
 
     # Class methods to extract specific stats from match data array.
+
+    def full_name
+      match_data[match_data.index('Full name') + 1]
+    end
+
+    def date_of_birth
+      "#{match_data[born_position + 1]} #{match_data[born_position + 2]}"
+    end
+
+    def current_age
+      match_data[born_position + 5]
+    end
+
+    def playing_role
+      match_data.select { |stat| stat.start_with?('Playing role') }.join
+    end
+
+    def batting_style
+      match_data.select { |stat| stat.start_with?('Batting style') }.join
+    end
+
+    def bowling_style
+      match_data.select { |stat| stat.start_with?('Bowling style') }.join
+    end
+
+    def batting_and_fielding_averages
+
+    end
+
+    def bowling_averages
+
+    end
+
+
+    private
+
+    def odi_stats
+      match_data.select { |stat| stat == 'ODIs' }
+    end
+
+    def born_position
+      match_data.index('Born')
+    end
   end
 end
 

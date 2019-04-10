@@ -35,4 +35,8 @@ module Cricketer
 end
 
 # p Cricketer::Match.create(656_399)
-p Cricketer::PlayerFinder.create('australia', 7898)
+player = Cricketer::PlayerFinder.create('australia', 272477)
+p player.date_of_birth
+p player.current_age
+p player.playing_role
+p player.odi_stats
