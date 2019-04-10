@@ -36,7 +36,5 @@ end
 
 # p Cricketer::Match.create(656_399)
 player = Cricketer::PlayerFinder.create('australia', 272477)
-p player.date_of_birth
-p player.current_age
-p player.playing_role
-p player.odi_stats
+p player.batting_and_fielding_averages
+

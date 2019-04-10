@@ -42,7 +42,11 @@ module Cricketer
     end
 
     def batting_and_fielding_averages
-
+      data = {}
+      format = ['ODIs', 'T20Is', 'First-class', 'List A', 'T20s']
+      keys = match_data[batting_average_stats_position+1..batting_average_stats_position+14]
+      values =
+      # p match_data
     end
 
     def bowling_averages
@@ -58,6 +62,10 @@ module Cricketer
 
     def born_position
       match_data.index('Born')
+    end
+
+    def batting_average_stats_position
+      match_data.index('Batting and fielding averages')
     end
   end
 end
