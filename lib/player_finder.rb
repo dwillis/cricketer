@@ -43,9 +43,23 @@ module Cricketer
 
     def batting_and_fielding_averages
       data = {}
-      format = ['ODIs', 'T20Is', 'First-class', 'List A', 'T20s']
-      keys = match_data[batting_average_stats_position+1..batting_average_stats_position+14]
-      values =
+      format_indicies = {'ODIs' => 0, 'T20Is' => 0, 'First-class' => 0, 'List A' => 0, 'T20s' => 0 }
+      batting_averages = match_data[batting_average_stats_position..bowling_average_position - 1]
+      format_indicies.each { |key, value| format_indicies[key] = batting_averages.index(key) }
+
+      column_names = match_data[batting_average_stats_position + 1..batting_average_stats_position + 14]
+
+      format_indicies.each do |key, value|
+        format_indicies[key] = Hash[column_names.zip(batting_averages[value + 1..value + 14])]
+      end
+
+      p format_indicies
+
+      # batting_data = {}
+      # formats.each do |format|
+      #   batting_data[format]
+      # end
+      # Hash[*keys.zip(instruments).flatten]
       # p match_data
     end
 
@@ -56,8 +70,12 @@ module Cricketer
 
     private
 
+    def position(name)
+      match_data.index(name)
+    end
+
     def odi_stats
-      match_data.select { |stat| stat == 'ODIs' }
+      match_data.find_index { |stat| stat == 'ODIs' }
     end
 
     def born_position
@@ -66,6 +84,10 @@ module Cricketer
 
     def batting_average_stats_position
       match_data.index('Batting and fielding averages')
+    end
+
+    def bowling_average_position
+      match_data.index('Bowling averages')
     end
   end
 end
