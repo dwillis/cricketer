@@ -17,7 +17,7 @@ module Cricketer
     end
 
     def self.create(match_id)
-      data = API.new(match_id: match_id).content
+      data = MatchesAPI.new(match_id: match_id).content
       description, summary, innings, official = data.values_at('description', 'match', 'innings', 'official')
       new(match_id: match_id, match_data: data, description: description,
           summary: summary, innings: innings, officials: official)
