@@ -18,7 +18,7 @@ module Cricketer
       doc.css('script, link').map(&:remove)
       scrape_array = doc.css('.pnl490M').inner_text.gsub(/[[\r\n]*|[\r\n]+)[\t]*[\r\n]]/, ',').split(',')
       scrape_array = scrape_array.map(&:strip)
-      @content = scrape_array.reject!{ |elem| elem.empty? || elem == ' ' || elem == ', ' }
+      @content = scrape_array.reject! { |elem| elem.empty? || elem == ' ' || elem == ', ' }
     end
   end
 end

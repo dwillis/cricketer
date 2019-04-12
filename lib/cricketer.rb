@@ -33,4 +33,3 @@ require_relative 'players_api'
 
 module Cricketer
 end
-

@@ -15,8 +15,6 @@ module Cricketer
       new(player_id: player_id, match_data: data)
     end
 
-    # Class methods to extract specific stats from match data array.
-
     def full_name
       match_data[position_of('Full name') + 1]
     end
@@ -49,13 +47,17 @@ module Cricketer
       format_averages(position_of('Bowling averages'), position_of('Career statistics'), 13)
     end
 
+    def profile
+      match_data[position_of('Profile') + 1..position_of('Latest Articles') - 1].join(' ')
+    end
+
     private
 
     def format_averages(start_position, end_position, number_of_columns)
-      data = {'ODIs' => 0, 'T20Is' => 0, 'First-class' => 0, 'List A' => 0, 'T20s' => 0 }
+      data = { 'ODIs' => 0, 'T20Is' => 0, 'First-class' => 0, 'List A' => 0, 'T20s' => 0 }
       averages_column_names = match_data[start_position + 1..start_position + number_of_columns]
       averages = match_data[start_position..end_position - 1]
-      data.each { |key, value| data[key] = averages.index(key) }
+      data.each { |key, _value| data[key] = averages.index(key) }
 
       data.each do |key, value|
         data[key] = Hash[averages_column_names.zip(averages[value + 1..value + 14])]
