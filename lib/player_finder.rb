@@ -42,36 +42,25 @@ module Cricketer
     end
 
     def batting_and_fielding_averages
-      data = {}
-      format_indicies = {'ODIs' => 0, 'T20Is' => 0, 'First-class' => 0, 'List A' => 0, 'T20s' => 0 }
-      batting_averages = match_data[batting_average_stats_position..bowling_average_position - 1]
-      format_indicies.each { |key, value| format_indicies[key] = batting_averages.index(key) }
-
-      column_names = match_data[batting_average_stats_position + 1..batting_average_stats_position + 14]
-
-      format_indicies.each do |key, value|
-        format_indicies[key] = Hash[column_names.zip(batting_averages[value + 1..value + 14])]
-      end
-
-      p format_indicies
-
-      # batting_data = {}
-      # formats.each do |format|
-      #   batting_data[format]
-      # end
-      # Hash[*keys.zip(instruments).flatten]
-      # p match_data
+      format_averages(batting_average_stats_position, bowling_average_position)
     end
 
     def bowling_averages
-
+      format_averages(bowling_average_position, career_statistics_position)
     end
-
 
     private
 
-    def position(name)
-      match_data.index(name)
+    def format_averages(start_position, end_position)
+      data = {'ODIs' => 0, 'T20Is' => 0, 'First-class' => 0, 'List A' => 0, 'T20s' => 0 }
+      averages_column_names = match_data[start_position + 1..start_position + 14]
+      averages = match_data[start_position..end_position - 1]
+      data.each { |key, value| data[key] = averages.index(key) }
+
+      data.each do |key, value|
+        data[key] = Hash[averages_column_names.zip(averages[value + 1..value + 14])]
+      end
+      data
     end
 
     def odi_stats
@@ -88,6 +77,10 @@ module Cricketer
 
     def bowling_average_position
       match_data.index('Bowling averages')
+    end
+
+    def career_statistics_position
+      match_data.index('Career statistics')
     end
   end
 end
