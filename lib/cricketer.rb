@@ -34,8 +34,3 @@ require_relative 'players_api'
 module Cricketer
 end
 
-# p Cricketer::Match.create(656_399)
-player = Cricketer::PlayerFinder.create('australia', 272477)
-p player.batting_and_fielding_averages
-p player.bowling_averages
-

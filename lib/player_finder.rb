@@ -18,15 +18,15 @@ module Cricketer
     # Class methods to extract specific stats from match data array.
 
     def full_name
-      match_data[match_data.index('Full name') + 1]
+      match_data[position_of('Full name') + 1]
     end
 
     def date_of_birth
-      "#{match_data[born_position + 1]} #{match_data[born_position + 2]}"
+      "#{match_data[position_of('Born') + 1]} #{match_data[position_of('Born') + 2]}"
     end
 
     def current_age
-      match_data[born_position + 5]
+      match_data[position_of('Born') + 5]
     end
 
     def playing_role
@@ -42,18 +42,18 @@ module Cricketer
     end
 
     def batting_and_fielding_averages
-      format_averages(batting_average_stats_position, bowling_average_position)
+      format_averages(position_of('Batting and fielding averages'), position_of('Bowling averages'), 14)
     end
 
     def bowling_averages
-      format_averages(bowling_average_position, career_statistics_position)
+      format_averages(position_of('Bowling averages'), position_of('Career statistics'), 13)
     end
 
     private
 
-    def format_averages(start_position, end_position)
+    def format_averages(start_position, end_position, number_of_columns)
       data = {'ODIs' => 0, 'T20Is' => 0, 'First-class' => 0, 'List A' => 0, 'T20s' => 0 }
-      averages_column_names = match_data[start_position + 1..start_position + 14]
+      averages_column_names = match_data[start_position + 1..start_position + number_of_columns]
       averages = match_data[start_position..end_position - 1]
       data.each { |key, value| data[key] = averages.index(key) }
 
@@ -63,24 +63,8 @@ module Cricketer
       data
     end
 
-    def odi_stats
-      match_data.find_index { |stat| stat == 'ODIs' }
-    end
-
-    def born_position
-      match_data.index('Born')
-    end
-
-    def batting_average_stats_position
-      match_data.index('Batting and fielding averages')
-    end
-
-    def bowling_average_position
-      match_data.index('Bowling averages')
-    end
-
-    def career_statistics_position
-      match_data.index('Career statistics')
+    def position_of(value)
+      match_data.index(value)
     end
   end
 end
